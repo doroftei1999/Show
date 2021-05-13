@@ -40,9 +40,7 @@ namespace LibraryModels
         {
             string[] splittedInfo = info.Split(FILE_SEPARATOR);
             name = splittedInfo[0];
-
             genre = (Genre)int.Parse(splittedInfo[1]);
-
             numberOfSeasons = int.Parse(splittedInfo[2]);
             numberOfEpisodes = int.Parse(splittedInfo[3]);
             review = double.Parse(splittedInfo[4]) / 10;
