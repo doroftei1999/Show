@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace LibraryModels
 {
@@ -16,12 +14,12 @@ namespace LibraryModels
             SF = 6
         };
 
-        char FILE_SEPARATOR = ';';
+        private char FILE_SEPARATOR = ';';
+
         public string name
         { get; set; }
 
-        public Genre genre
-        { get; set; }
+        public List<Genre> genres = new List<Genre>();
 
         public int numberOfSeasons
         { get; set; }
@@ -34,19 +32,28 @@ namespace LibraryModels
 
         public bool onGoing
         { get; set; }
-        public show() { }
+
+        public show()
+        {
+        }
 
         public show(string info)
         {
+            int x;
             string[] splittedInfo = info.Split(FILE_SEPARATOR);
             name = splittedInfo[0];
-            genre = (Genre)int.Parse(splittedInfo[1]);
+            foreach (char c in splittedInfo[1])
+            {
+                if (int.TryParse(c.ToString(), out x) == true)
+                    genres.Add((Genre)x);
+            }
             numberOfSeasons = int.Parse(splittedInfo[2]);
             numberOfEpisodes = int.Parse(splittedInfo[3]);
             review = double.Parse(splittedInfo[4]) / 10;
             review = (review < 1) ? review * 10 : review;
             onGoing = bool.Parse(splittedInfo[5]);
         }
+
         public static show operator <(show a, show b)
         {
             if (a.review <= b.review)
@@ -54,6 +61,7 @@ namespace LibraryModels
             else
                 return b;
         }
+
         public static show operator >(show a, show b)
         {
             if (a.review >= b.review)
@@ -64,14 +72,29 @@ namespace LibraryModels
 
         public string convertToString()
         {
+            string Genres = string.Empty;
+            foreach (Genre g in genres)
+            {
+                Genres += g.ToString();
+                Genres += ',';
+            }
+            Genres = Genres.Remove(Genres.Length - 1);
             string onGoingString = (onGoing) ? "Inca apar episoade.\n" : "Serialul s-a incheiat.\n";
-            return "Nume: " + name + "\nGenul: " + genre +
-                "\nNumar de sezoane: " + numberOfSeasons.ToString() + "\nNumar de episoade: " +
-                numberOfEpisodes.ToString() + "\nRecenzie: " + review.ToString() + "\n" + onGoingString;
+            return "Nume: " + name + " \nGenul: " + Genres +
+                " \nNumar de sezoane: " + numberOfSeasons.ToString() + " \nNumar de episoade: " +
+                numberOfEpisodes.ToString() + " \nRecenzie: " + review.ToString() + " \n" + onGoingString;
         }
+
         public string convertToFileFormat()
         {
-            return name + FILE_SEPARATOR + (int)genre + FILE_SEPARATOR + numberOfSeasons.ToString() + FILE_SEPARATOR + numberOfEpisodes.ToString() + FILE_SEPARATOR + review.ToString() + FILE_SEPARATOR + onGoing.ToString();
+            string Genres = string.Empty;
+            foreach (Genre g in genres)
+            {
+                Genres += ((int)g).ToString();
+                Genres += ',';
+            }
+            Genres = Genres.Remove(Genres.Length - 1);
+            return name + FILE_SEPARATOR + Genres + FILE_SEPARATOR + numberOfSeasons.ToString() + FILE_SEPARATOR + numberOfEpisodes.ToString() + FILE_SEPARATOR + review.ToString() + FILE_SEPARATOR + onGoing.ToString();
         }
     }
 }

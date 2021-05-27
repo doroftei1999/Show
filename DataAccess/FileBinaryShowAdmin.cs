@@ -21,5 +21,13 @@ namespace DataAccess
         {
             throw new Exception("Optiunea GetShows nu este implementata");
         }
+        public show getShow(string name)
+        {
+            throw new Exception("Optiunea GetShows nu este implementata");
+        }
+        public bool modifyShow(ArrayList modifiedshows)
+        {
+            throw new Exception("Optiunea GetShows nu este implementata");
+        }
     }
 }

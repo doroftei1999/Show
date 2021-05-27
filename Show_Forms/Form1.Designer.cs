@@ -37,23 +37,28 @@ namespace Show_Forms
             this.nrSeasonsTxt = new System.Windows.Forms.TextBox();
             this.nrEpisodesTxt = new System.Windows.Forms.TextBox();
             this.reviewTxt = new System.Windows.Forms.TextBox();
-            this.Comedie = new System.Windows.Forms.RadioButton();
             this.genreLbl = new System.Windows.Forms.Label();
-            this.Drama = new System.Windows.Forms.RadioButton();
-            this.Horror = new System.Windows.Forms.RadioButton();
-            this.Thriller = new System.Windows.Forms.RadioButton();
-            this.Aventura = new System.Windows.Forms.RadioButton();
-            this.SF = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Genuri = new System.Windows.Forms.GroupBox();
+            this.SF = new System.Windows.Forms.CheckBox();
+            this.Thriller = new System.Windows.Forms.CheckBox();
+            this.Aventura = new System.Windows.Forms.CheckBox();
+            this.Horror = new System.Windows.Forms.CheckBox();
+            this.Drama = new System.Windows.Forms.CheckBox();
+            this.Comedie = new System.Windows.Forms.CheckBox();
             this.AddShowBtn = new System.Windows.Forms.Button();
             this.ongoingLbl = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.OnGoing = new System.Windows.Forms.GroupBox();
             this.ongoingFalse = new System.Windows.Forms.RadioButton();
             this.ongoingTrue = new System.Windows.Forms.RadioButton();
             this.ShowsTxt = new System.Windows.Forms.RichTextBox();
             this.DisplayShowsBtn = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.Modify = new System.Windows.Forms.Button();
+            this.Search = new System.Windows.Forms.Button();
+            this.dataGridViewSeriale = new System.Windows.Forms.DataGridView();
+            this.lstBoxSeriale = new System.Windows.Forms.ListBox();
+            this.Genuri.SuspendLayout();
+            this.OnGoing.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeriale)).BeginInit();
             this.SuspendLayout();
             // 
             // nameTxt
@@ -73,7 +78,6 @@ namespace Show_Forms
             this.nameLbl.Size = new System.Drawing.Size(76, 28);
             this.nameLbl.TabIndex = 1;
             this.nameLbl.Text = "Nume";
-            this.nameLbl.Click += new System.EventHandler(this.label1_Click);
             // 
             // nrSeasonsLbl
             // 
@@ -129,18 +133,6 @@ namespace Show_Forms
             this.reviewTxt.Size = new System.Drawing.Size(125, 25);
             this.reviewTxt.TabIndex = 7;
             // 
-            // Comedie
-            // 
-            this.Comedie.AutoSize = true;
-            this.Comedie.Font = new System.Drawing.Font("Book Antiqua", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Comedie.Location = new System.Drawing.Point(6, 24);
-            this.Comedie.Name = "Comedie";
-            this.Comedie.Size = new System.Drawing.Size(125, 32);
-            this.Comedie.TabIndex = 8;
-            this.Comedie.TabStop = true;
-            this.Comedie.Text = "Comedie";
-            this.Comedie.UseVisualStyleBackColor = true;
-            // 
             // genreLbl
             // 
             this.genreLbl.AutoSize = true;
@@ -152,39 +144,40 @@ namespace Show_Forms
             this.genreLbl.TabIndex = 9;
             this.genreLbl.Text = "Alegeti un gen:";
             // 
-            // Drama
+            // Genuri
             // 
-            this.Drama.AutoSize = true;
-            this.Drama.Font = new System.Drawing.Font("Book Antiqua", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Drama.Location = new System.Drawing.Point(6, 62);
-            this.Drama.Name = "Drama";
-            this.Drama.Size = new System.Drawing.Size(104, 32);
-            this.Drama.TabIndex = 10;
-            this.Drama.TabStop = true;
-            this.Drama.Text = "Drama";
-            this.Drama.UseVisualStyleBackColor = true;
+            this.Genuri.Controls.Add(this.SF);
+            this.Genuri.Controls.Add(this.Thriller);
+            this.Genuri.Controls.Add(this.Aventura);
+            this.Genuri.Controls.Add(this.Horror);
+            this.Genuri.Controls.Add(this.Drama);
+            this.Genuri.Controls.Add(this.Comedie);
+            this.Genuri.Location = new System.Drawing.Point(277, 301);
+            this.Genuri.Name = "Genuri";
+            this.Genuri.Size = new System.Drawing.Size(138, 247);
+            this.Genuri.TabIndex = 15;
+            this.Genuri.TabStop = false;
+            this.Genuri.Text = "Genuri";
             // 
-            // Horror
+            // SF
             // 
-            this.Horror.AutoSize = true;
-            this.Horror.Font = new System.Drawing.Font("Book Antiqua", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Horror.Location = new System.Drawing.Point(6, 100);
-            this.Horror.Name = "Horror";
-            this.Horror.Size = new System.Drawing.Size(105, 32);
-            this.Horror.TabIndex = 11;
-            this.Horror.TabStop = true;
-            this.Horror.Text = "Horror";
-            this.Horror.UseVisualStyleBackColor = true;
+            this.SF.AutoSize = true;
+            this.SF.Font = new System.Drawing.Font("Book Antiqua", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SF.Location = new System.Drawing.Point(0, 209);
+            this.SF.Name = "SF";
+            this.SF.Size = new System.Drawing.Size(59, 32);
+            this.SF.TabIndex = 26;
+            this.SF.Text = "SF";
+            this.SF.UseVisualStyleBackColor = true;
             // 
             // Thriller
             // 
             this.Thriller.AutoSize = true;
             this.Thriller.Font = new System.Drawing.Font("Book Antiqua", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Thriller.Location = new System.Drawing.Point(6, 138);
+            this.Thriller.Location = new System.Drawing.Point(0, 138);
             this.Thriller.Name = "Thriller";
-            this.Thriller.Size = new System.Drawing.Size(110, 32);
-            this.Thriller.TabIndex = 12;
-            this.Thriller.TabStop = true;
+            this.Thriller.Size = new System.Drawing.Size(111, 32);
+            this.Thriller.TabIndex = 24;
             this.Thriller.Text = "Thriller";
             this.Thriller.UseVisualStyleBackColor = true;
             // 
@@ -192,40 +185,45 @@ namespace Show_Forms
             // 
             this.Aventura.AutoSize = true;
             this.Aventura.Font = new System.Drawing.Font("Book Antiqua", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Aventura.Location = new System.Drawing.Point(6, 171);
+            this.Aventura.Location = new System.Drawing.Point(0, 176);
             this.Aventura.Name = "Aventura";
-            this.Aventura.Size = new System.Drawing.Size(131, 32);
-            this.Aventura.TabIndex = 13;
-            this.Aventura.TabStop = true;
+            this.Aventura.Size = new System.Drawing.Size(132, 32);
+            this.Aventura.TabIndex = 25;
             this.Aventura.Text = "Aventura";
             this.Aventura.UseVisualStyleBackColor = true;
             // 
-            // SF
+            // Horror
             // 
-            this.SF.AutoSize = true;
-            this.SF.Font = new System.Drawing.Font("Book Antiqua", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SF.Location = new System.Drawing.Point(6, 209);
-            this.SF.Name = "SF";
-            this.SF.Size = new System.Drawing.Size(58, 32);
-            this.SF.TabIndex = 14;
-            this.SF.TabStop = true;
-            this.SF.Text = "SF";
-            this.SF.UseVisualStyleBackColor = true;
+            this.Horror.AutoSize = true;
+            this.Horror.Font = new System.Drawing.Font("Book Antiqua", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Horror.Location = new System.Drawing.Point(0, 100);
+            this.Horror.Name = "Horror";
+            this.Horror.Size = new System.Drawing.Size(106, 32);
+            this.Horror.TabIndex = 23;
+            this.Horror.Text = "Horror";
+            this.Horror.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // Drama
             // 
-            this.groupBox1.Controls.Add(this.Comedie);
-            this.groupBox1.Controls.Add(this.SF);
-            this.groupBox1.Controls.Add(this.Drama);
-            this.groupBox1.Controls.Add(this.Aventura);
-            this.groupBox1.Controls.Add(this.Horror);
-            this.groupBox1.Controls.Add(this.Thriller);
-            this.groupBox1.Location = new System.Drawing.Point(277, 301);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(138, 247);
-            this.groupBox1.TabIndex = 15;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Genuri";
+            this.Drama.AutoSize = true;
+            this.Drama.Font = new System.Drawing.Font("Book Antiqua", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Drama.Location = new System.Drawing.Point(0, 62);
+            this.Drama.Name = "Drama";
+            this.Drama.Size = new System.Drawing.Size(105, 32);
+            this.Drama.TabIndex = 22;
+            this.Drama.Text = "Drama";
+            this.Drama.UseVisualStyleBackColor = true;
+            // 
+            // Comedie
+            // 
+            this.Comedie.AutoSize = true;
+            this.Comedie.Font = new System.Drawing.Font("Book Antiqua", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Comedie.Location = new System.Drawing.Point(0, 24);
+            this.Comedie.Name = "Comedie";
+            this.Comedie.Size = new System.Drawing.Size(126, 32);
+            this.Comedie.TabIndex = 21;
+            this.Comedie.Text = "Comedie";
+            this.Comedie.UseVisualStyleBackColor = true;
             // 
             // AddShowBtn
             // 
@@ -249,16 +247,16 @@ namespace Show_Forms
             this.ongoingLbl.TabIndex = 17;
             this.ongoingLbl.Text = "On-going";
             // 
-            // groupBox2
+            // OnGoing
             // 
-            this.groupBox2.Controls.Add(this.ongoingFalse);
-            this.groupBox2.Controls.Add(this.ongoingTrue);
-            this.groupBox2.Location = new System.Drawing.Point(277, 234);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(125, 50);
-            this.groupBox2.TabIndex = 18;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "On-going";
+            this.OnGoing.Controls.Add(this.ongoingFalse);
+            this.OnGoing.Controls.Add(this.ongoingTrue);
+            this.OnGoing.Location = new System.Drawing.Point(277, 234);
+            this.OnGoing.Name = "OnGoing";
+            this.OnGoing.Size = new System.Drawing.Size(125, 50);
+            this.OnGoing.TabIndex = 18;
+            this.OnGoing.TabStop = false;
+            this.OnGoing.Text = "On-going";
             // 
             // ongoingFalse
             // 
@@ -286,10 +284,9 @@ namespace Show_Forms
             // 
             this.ShowsTxt.Location = new System.Drawing.Point(728, 56);
             this.ShowsTxt.Name = "ShowsTxt";
-            this.ShowsTxt.Size = new System.Drawing.Size(627, 448);
+            this.ShowsTxt.Size = new System.Drawing.Size(466, 583);
             this.ShowsTxt.TabIndex = 19;
             this.ShowsTxt.Text = "";
-            this.ShowsTxt.TextChanged += new System.EventHandler(this.ShowsTxt_TextChanged);
             // 
             // DisplayShowsBtn
             // 
@@ -302,17 +299,64 @@ namespace Show_Forms
             this.DisplayShowsBtn.UseVisualStyleBackColor = true;
             this.DisplayShowsBtn.Click += new System.EventHandler(this.DisplayShows_Click);
             // 
+            // Modify
+            // 
+            this.Modify.Font = new System.Drawing.Font("Book Antiqua", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Modify.Location = new System.Drawing.Point(435, 234);
+            this.Modify.Name = "Modify";
+            this.Modify.Size = new System.Drawing.Size(177, 66);
+            this.Modify.TabIndex = 21;
+            this.Modify.Text = "Modificare serial";
+            this.Modify.UseVisualStyleBackColor = true;
+            this.Modify.Click += new System.EventHandler(this.Modify_Click);
+            // 
+            // Search
+            // 
+            this.Search.Font = new System.Drawing.Font("Book Antiqua", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Search.Location = new System.Drawing.Point(435, 325);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(177, 66);
+            this.Search.TabIndex = 22;
+            this.Search.Text = "Cautare serial";
+            this.Search.UseVisualStyleBackColor = true;
+            this.Search.Click += new System.EventHandler(this.Search_Click);
+            // 
+            // dataGridViewSeriale
+            // 
+            this.dataGridViewSeriale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSeriale.Location = new System.Drawing.Point(1218, 56);
+            this.dataGridViewSeriale.Name = "dataGridViewSeriale";
+            this.dataGridViewSeriale.RowHeadersWidth = 51;
+            this.dataGridViewSeriale.RowTemplate.Height = 27;
+            this.dataGridViewSeriale.Size = new System.Drawing.Size(551, 244);
+            this.dataGridViewSeriale.TabIndex = 23;
+            this.dataGridViewSeriale.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeriale_CellContentClick);
+            // 
+            // lstBoxSeriale
+            // 
+            this.lstBoxSeriale.FormattingEnabled = true;
+            this.lstBoxSeriale.ItemHeight = 17;
+            this.lstBoxSeriale.Location = new System.Drawing.Point(1218, 327);
+            this.lstBoxSeriale.Name = "lstBoxSeriale";
+            this.lstBoxSeriale.Size = new System.Drawing.Size(551, 310);
+            this.lstBoxSeriale.TabIndex = 24;
+            this.lstBoxSeriale.SelectedIndexChanged += new System.EventHandler(this.lstBoxSeriale_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1737, 888);
+            this.ClientSize = new System.Drawing.Size(1795, 864);
+            this.Controls.Add(this.lstBoxSeriale);
+            this.Controls.Add(this.dataGridViewSeriale);
+            this.Controls.Add(this.Search);
+            this.Controls.Add(this.Modify);
             this.Controls.Add(this.DisplayShowsBtn);
             this.Controls.Add(this.ShowsTxt);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.OnGoing);
             this.Controls.Add(this.ongoingLbl);
             this.Controls.Add(this.AddShowBtn);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.Genuri);
             this.Controls.Add(this.genreLbl);
             this.Controls.Add(this.reviewTxt);
             this.Controls.Add(this.nrEpisodesTxt);
@@ -323,11 +367,12 @@ namespace Show_Forms
             this.Controls.Add(this.nameLbl);
             this.Controls.Add(this.nameTxt);
             this.Name = "Form1";
-            this.Text = "Gen";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.Text = "Seriale";
+            this.Genuri.ResumeLayout(false);
+            this.Genuri.PerformLayout();
+            this.OnGoing.ResumeLayout(false);
+            this.OnGoing.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeriale)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,21 +388,25 @@ namespace Show_Forms
         private System.Windows.Forms.TextBox nrSeasonsTxt;
         private System.Windows.Forms.TextBox nrEpisodesTxt;
         private System.Windows.Forms.TextBox reviewTxt;
-        private System.Windows.Forms.RadioButton Comedie;
         private System.Windows.Forms.Label genreLbl;
-        private System.Windows.Forms.RadioButton Drama;
-        private System.Windows.Forms.RadioButton Horror;
-        private System.Windows.Forms.RadioButton Thriller;
-        private System.Windows.Forms.RadioButton Aventura;
-        private System.Windows.Forms.RadioButton SF;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox Genuri;
         private System.Windows.Forms.Button AddShowBtn;
         private System.Windows.Forms.Label ongoingLbl;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox OnGoing;
         private System.Windows.Forms.RadioButton ongoingFalse;
         private System.Windows.Forms.RadioButton ongoingTrue;
         private System.Windows.Forms.RichTextBox ShowsTxt;
         private System.Windows.Forms.Button DisplayShowsBtn;
+        private System.Windows.Forms.CheckBox SF;
+        private System.Windows.Forms.CheckBox Thriller;
+        private System.Windows.Forms.CheckBox Aventura;
+        private System.Windows.Forms.CheckBox Horror;
+        private System.Windows.Forms.CheckBox Drama;
+        private System.Windows.Forms.CheckBox Comedie;
+        private System.Windows.Forms.Button Modify;
+        private System.Windows.Forms.Button Search;
+        private System.Windows.Forms.DataGridView dataGridViewSeriale;
+        private System.Windows.Forms.ListBox lstBoxSeriale;
     }
 }
 
